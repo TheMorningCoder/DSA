@@ -6,17 +6,17 @@ public class Print_1_to_n {
 		Scanner sc= new Scanner(System.in);
 		System.out.println("Enter number");
 		int num=sc.nextInt();
-		print_count_ascending(num);
+		print_count(num);
 
 	}
 
-	static void print_count_ascending(int number) {
+	static void print_count(int number) {
 		if(number==1) {
 			System.out.println(number);
 			return;	
 		}
 		else {
-			print_count_ascending(number-1);
+			print_count(number-1);
 			System.out.println(number); 
 		}
 		
