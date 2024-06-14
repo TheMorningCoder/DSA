@@ -3,11 +3,10 @@ package recursion_with_strings;
 public class BinarySearchWithRecursion {
 
 	public static void main(String[] args) {
-		int arr[]= {12,12,34,45,56,78,89,90};
-		System.out.println(arr);
-		int ele=89;
-		int index=binarySearch(arr,0,arr.length-1,ele);
-		System.out.println(index);
+		int arr[]= {1,2,3,4,5,20,30,40,45,67};
+		System.out.println(binarySearch(arr,0,arr.length-1,40));
+		System.out.println(binarySearch(arr,0,arr.length-1,4));
+		System.out.println(binarySearch(arr,0,arr.length-1,1));
 	}
 	
 	public static int binarySearch(int arr[],int startIndex,int endIndex,int element){
