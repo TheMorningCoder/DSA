@@ -11,7 +11,7 @@ public class Check_If_Array_Is_Sorted {
 		for(int i=0;i<len;i++) {
 			arr[i]=sc.nextInt();
 		}
-		System.out.println(checkArray(arr));
+		System.out.println(checkArrayBetter(arr,0));
 	}
 	public static boolean checkArray(int a[]) {
 		if(a.length==1) {
@@ -25,5 +25,15 @@ public class Check_If_Array_Is_Sorted {
 			newArray[i-1]=a[i];
 		}
 		return checkArray(newArray);
+	}
+	public static boolean checkArrayBetter(int a[],int startIndex) {
+		if(a.length-1==startIndex) {
+			return true;
+		}
+		if(a[startIndex]>a[startIndex+1]) {
+			return false;
+		}
+		
+		return checkArrayBetter(a,startIndex+1);
 	}
 }
