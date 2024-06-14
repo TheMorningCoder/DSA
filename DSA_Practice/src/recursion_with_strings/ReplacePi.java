@@ -9,7 +9,7 @@ public class ReplacePi {
 	}
 
 	static public String replacePi(String str) {
-		if (str.length() <=0) { // becoz we need minimum 2 chars to be present in String to replace pi with 3.14
+		if (str.length() <=1) { // becoz we need minimum 2 chars to be present in String to replace pi with 3.14
 			return str; 
 		}
 
