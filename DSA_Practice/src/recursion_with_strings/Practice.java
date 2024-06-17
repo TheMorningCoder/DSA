@@ -1,6 +1,63 @@
 package recursion_with_strings;
 
+
 public class Practice{
+	public static void main(String args[]) {
+		int arr[]= {1,2,6,13,14,25,26,37,38,39};	
+		for (int i: arr)
+			System.out.print(i+" ");
+		System.out.println();
+		int ele=6;
+		int index=binarySearch(arr,0,arr.length-1,ele);
+		System.out.println("Element "+ele+" is at index: "+(index));
+	}
+	public static int binarySearch(int arr[],int startIndex,int endIndex,int element) {
+		if(arr.length==0)
+			return -1;
+		if(startIndex>endIndex)
+			return -1;
+		
+		
+		int midIndex=(startIndex+endIndex)/2;
+		if(element==arr[midIndex])
+			return midIndex;
+		
+		else {
+			if(element>arr[midIndex])
+				return binarySearch(arr,midIndex+1,endIndex,element);
+			else
+				return binarySearch(arr,startIndex,midIndex-1,element);
+		}
+		
+	}
+}
+
+
+//public class Practice{
+//	public static void main(String args[]) {
+//		String str="xxxyyywwwzzsserdaaa";
+//		System.out.println(str);
+//		String s=removeConsecutiveDupes(str);
+//		System.out.println(s);
+//	}
+//	public static String removeConsecutiveDupes(String s) {
+//		
+//		if(s.length()<2)
+//			return s;
+//		else {
+//			if(s.charAt(0)==s.charAt(1)) {
+//				return removeConsecutiveDupes(s.substring(1));
+//			}
+//			else {
+//				return s.charAt(0)+removeConsecutiveDupes(s.substring(1));
+//			}
+//		}
+//	}
+//}
+
+
+
+/*public class Practice{
 	
 	public static void main(String args[]) {
 		int arr[]= {43,2,3,6,30,12,45,60,90,30,43,2,2,1};
@@ -49,4 +106,4 @@ public class Practice{
 		
 		return pivotIndex;
 	}
-}
+}*/
