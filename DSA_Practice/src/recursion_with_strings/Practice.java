@@ -2,70 +2,34 @@ package recursion_with_strings;
 
 
 public class Practice{
-
-	public static void main(String args[])
-	{
-		int arr[]={1,30,50,2,4,5,10};
+	
+	public static void main(String args[]) {
+		int arr[]= {2,3,5,3,2,1,2,3,6,7};
+		int ele=3;
 		for(int i:arr)
-	  		System.out.print(i+" ");
+			System.out.print(i+" ");
 		System.out.println();
-		quickSort(arr,0,arr.length-1);
-		for(int i:arr)
-	  	System.out.print(i+" ");
-		System.out.println();
+		int k=removeElement(arr,ele);
+		System.out.println(k);
+		for(int i=0;i<arr.length;i++) {
+			if(i<k)
+				System.out.print(arr[i]+",");
+			else
+				System.out.print("_,");
+		}
 	}
-
-	public static void quickSort(int a[],int startIndex,int endIndex){
+	public static int removeElement(int num[],int e) {
+		int k=0;
+		for(int i=0;i<num.length;i++) {
+			if(num[i]!=e) {
+				num[k]=num[i];
+				k++;
+			}
+		}
 		
-		if(startIndex>=endIndex)
-			return;
-		int pivotIndex=findPivot(a,startIndex,endIndex);
-		
-		quickSort(a,startIndex,pivotIndex-1);
-		quickSort(a,pivotIndex+1,endIndex);
-		
-	}// end of quickSort
-
-   public static int findPivot(int a[], int startIndex,int endIndex) {
-	   int temp,pivotIndex;
-	   int smallerNumberCount=0;
-		for(int i=startIndex+1;i<=endIndex;i++){
-			if(a[startIndex]>a[i])
-				smallerNumberCount++;
-		} // end of for
-
-		pivotIndex=startIndex+smallerNumberCount;
-		temp=a[startIndex];
-		a[startIndex]=a[pivotIndex];
-		a[pivotIndex]=temp;
-		
-		int i=startIndex;
-		int j=endIndex;
-
-		while(i<j){
-			
-			if(a[i]<a[pivotIndex])
-				i++;
-			else if(a[j]>=a[pivotIndex])
-				j--;
-			else{
-				temp=a[i];
-				a[i]=a[j];
-				a[j]=temp;
-				i++;
-				j--;
-			}// end of else
-
-		}// end of while
-		return pivotIndex;
-	
-   }// end of findPivot()
-	
-}// end of class
-
-
-
-
+		return k;
+	}
+}
 
 
 
