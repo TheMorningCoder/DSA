@@ -2,38 +2,35 @@ package recursion_with_strings;
 
 
 public class Practice{
+
+	 public static void main(String args[]){
+
+		String str="123@@NaraN***@@@";
+		String newString=(str.replaceAll("[^a-zA-Z0-9]","")).toLowerCase();
+		System.out.println(newString);
+		System.out.println(checkPalindrome(newString,0,newString.length()-1));
+
+	  }
+	  
+	  public static boolean checkPalindrome(String str,int si,int ei){
+		System.out.println(str);
+		if(si>=ei)
+		 return true;
 	
-	public static void main(String args[]) {
-		int arr[]= {2,3,5,3,2,1,2,3,6,7};
-		int ele=3;
-		for(int i:arr)
-			System.out.print(i+" ");
-		System.out.println();
-		int k=removeElement(arr,ele);
-		System.out.println(k);
-		for(int i=0;i<arr.length;i++) {
-			if(i<k)
-				System.out.print(arr[i]+",");
-			else
-				System.out.print("_,");
-		}
-	}
-	public static int removeElement(int num[],int e) {
-		int k=0;
-		for(int i=0;i<num.length;i++) {
-			if(num[i]!=e) {
-				num[k]=num[i];
-				k++;
-			}
-		}
+		else{  
+		  	if(str.charAt(si)==str.charAt(ei)){
+				si++;
+				ei--;
+	       		return checkPalindrome(str,si,ei);	
+		  	}// end of if
+		  	else{
+	           		return false;
+	        }// end of else		
+	    }// end of else
 		
-		return k;
-	}
-}
+	  }// end of checkPalindrome
 
-
-
-
+	}// end of class
 
 
 
