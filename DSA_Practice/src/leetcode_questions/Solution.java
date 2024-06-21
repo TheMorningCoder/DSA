@@ -1,37 +1,38 @@
 package leetcode_questions;
 
-class Solution {
-    public static int majorityElement(int[] nums) {
-        int index[]=new int[nums.length];
-        for(int i=0;i<nums.length;i++){
-            for(int j=0;j<index.length;j++){
-                if(nums[i]==index[j])
-                    index[j]++;
-                else
-                    index[j]=1;
-            }
-        }
-        
-        for(int x:nums)
-        	System.out.print(x+" ");
-        System.out.println();
-        for(int x:index)
-        	System.out.print(x+" ");
-        System.out.println();
-        int max = index[0];
+import java.util.ArrayList;
 
-        // Loop through the array starting from the second element
-        for (int i = 1; i < index.length; i++) {
-            // Update the max if the current element is greater
-            if (index[i] > nums.length/2) {
-                max = nums[i];
-            }
-        }
-        return max;
+class Solution {
+    public static ArrayList<Integer> removeDupes(ArrayList<Integer> arr) {
+    	
+    	ArrayList<Integer> newArr=new ArrayList<>();
+    	newArr.add(arr.get(0));
+    	for(int i=1;i<arr.size();i++) {
+    		if(arr.get(i)!=arr.get(i-1)) {
+    			newArr.add(arr.get(i));
+    		}
+    	}
+    	
+    	return newArr;
     }
-    
+	
+	
+	
     public static void main(String args[]) {
-    	int a[]= {2,3,2};
-    	System.out.println(majorityElement(a));
+    	ArrayList<Integer> arr=new ArrayList<>();
+    	ArrayList<Integer> newArr=new ArrayList<>();
+    	arr.add(1);
+    	arr.add(1);
+    	arr.add(1);
+    	arr.add(2);
+    	arr.add(2);
+    	arr.add(3);
+    	for(int a:arr)
+    		System.out.print(a+" ");
+    	System.out.println();
+    	newArr=removeDupes(arr);
+    	for(int a:newArr)
+    		System.out.print(a+" ");
+    	System.out.println();
     }
 }
