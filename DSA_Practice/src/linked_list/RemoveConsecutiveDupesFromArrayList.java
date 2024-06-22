@@ -17,8 +17,6 @@ class RemoveConsecutiveDupesFromArrayList {
     	return newArr;
     }
 	
-	
-	
     public static void main(String args[]) {
     	ArrayList<Integer> arr=new ArrayList<>();
     	ArrayList<Integer> newArr=new ArrayList<>();
