@@ -29,6 +29,6 @@ public class RemoveDuplicates {
 				return str.charAt(0)+removeDupe(str.substring(1));
 			}
 			
-		}
+ 		}
 	}
 }
