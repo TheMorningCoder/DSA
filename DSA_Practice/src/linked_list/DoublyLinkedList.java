@@ -34,6 +34,7 @@ public class DoublyLinkedList {
 		
 	}
 	
+	
 	void displayList() {
 		if(head==null)
 			System.out.println("Empty list");
@@ -46,6 +47,9 @@ public class DoublyLinkedList {
 					System.out.println();
 		}
 	}
+	
+	
+	
 	
 }
 

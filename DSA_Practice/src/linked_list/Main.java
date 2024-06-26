@@ -9,7 +9,6 @@ public class Main {
 		dll.append(30);
 		dll.append(40);
 		dll.displayList();
-		dll.insertAtPosition(5000,3);
 		dll.displayList();
 
 	}
