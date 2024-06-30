@@ -136,27 +136,33 @@ public class MoveNNodeToFront {
 			return head;
 		}
 	}
-	public static Node<Integer> mergeTwoSorteds(Node<Integer> head1, Node<Integer> head2) {
+	public static Node<Integer> mergeTwoSortedArrays(Node<Integer> head1, Node<Integer> head2) {
 		Node<Integer>dummy=new Node<Integer>(0);
 		Node<Integer>temp=dummy;
 		
 		while(head1!=null&&head2!=null) {
 			if(head1.data<head2.data) {
+				
 				temp.next=head1;
 				head1=head1.next;
+				temp=temp.next;
 			}else {
+				
 				temp.next=head2;
 				head2=head2.next;
+				temp=temp.next;
 			}
-			temp=temp.next;
+			
 		}
 		while(head1!=null) {
 			temp.next=head1;
 			head1=head1.next;
+			temp=temp.next;
 		}
 		while(head2!=null) {
 			temp.next=head2;
 			head2=head2.next;
+			temp=temp.next;
 		}
 		
 		return dummy.next;
@@ -164,17 +170,26 @@ public class MoveNNodeToFront {
 	
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
-
-		Node<Integer> head = new Node<>(10);
+		Node<Integer> sortedList;
+		
+		Node<Integer> head = new Node<>(1);
 		head.next = new Node<>(6);
-		head.next.next = new Node<>(77);
-		head.next.next.next = new Node<>(90);
-		head.next.next.next.next = new Node<>(61);
-		head.next.next.next.next.next = new Node<>(67);
+		head.next.next = new Node<>(7);
+		head.next.next.next = new Node<>(9);
+		head.next.next.next.next = new Node<>(16);
+		head.next.next.next.next.next = new Node<>(17);
 		head.next.next.next.next.next.next = new Node<>(100);
+		
+		Node<Integer> head2 = new Node<>(1);
+		head2.next = new Node<>(2);
+		head2.next.next = new Node<>(3);
+		head2.next.next.next = new Node<>(4);
+		
+		
 		print(head);
-		head = deleteRec(head, 7);
-		print(head);
+		print(head2);
+		sortedList=mergeTwoSortedArrays(head,head2);
+		print(sortedList);
 
 	}
 }
