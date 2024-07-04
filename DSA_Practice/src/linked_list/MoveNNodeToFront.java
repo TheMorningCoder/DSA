@@ -5,15 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-class Node<T> {
-	T data;
-	Node<T> next;
-
-	public Node(T data) {
-		this.data = data;
-	}
-}
-
 public class MoveNNodeToFront {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
