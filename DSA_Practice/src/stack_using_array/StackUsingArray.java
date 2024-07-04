@@ -8,31 +8,53 @@ public class StackUsingArray {
 		data=new int[10];
 		topIndex=-1;
 	}
+	StackUsingArray(int size){
+		data=new int[size];
+		topIndex=-1;
+	}
 	
-	void push(int element) {
+	void push(int element) throws StackFullException {
+		if(topIndex==data.length-1) {
+			throw new StackFullException();
+		}
 		if(topIndex<data.length) {
 			data[++topIndex]=element;
 		}
 	}
 	
-	int pop() {
-	if(topIndex==-1)
-		return -1;
-	int temp=data[topIndex];
-	--topIndex;
-	return temp;
+	int pop() throws StackEmptyException {
+		if(isEmpty())
+			throw new StackEmptyException();
+		int temp=data[topIndex];
+		--topIndex;
+		return temp;
 	}
 	
 	int size() {
 		return topIndex+1;
 	}
-	int top() {
+	
+	boolean isEmpty() {
+		return topIndex==-1;
+	}
+	
+	int top() throws StackEmptyException {
+		if(isEmpty())
+			throw new StackEmptyException();
+		
 		return data[topIndex];
 	}
-	void print() {
-		for(int i=topIndex;i>=0;i--) {
-			System.out.print(data[i]+" ");
+	
+	
+	void print() throws StackEmptyException {
+		if(isEmpty())
+			throw new StackEmptyException();
+		if(!isEmpty()) {
+			for(int i=topIndex;i>=0;i--) {
+				System.out.print(data[i]+" ");
+			}
+			System.out.println();
 		}
-		System.out.println();
+		
 	}
 }
