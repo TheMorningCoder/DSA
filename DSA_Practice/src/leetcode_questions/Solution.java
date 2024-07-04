@@ -1,35 +1,38 @@
 package leetcode_questions;
 
-import java.util.HashMap;
 
 public class Solution {
 
 	public static void main(String args[]) {
-
-		System.out.println(romanToInteger("LVIII"));
-		System.out.println(romanToInteger("CCCXL"));
+		int arr[]= {7,1,5,3,6,4};
+		int arr2[]= {1,2,3,4,5};
+		System.out.println(buySellStocks(arr));
+		System.out.println(buySellStocks2(arr));
+		System.out.println(buySellStocks(arr2));
+		System.out.println(buySellStocks2(arr2));
 	}
 
-	public static int romanToInteger(String str) {
-		int num=0;
-		HashMap<Character,Integer> map=new HashMap<>();
-		map.put('I', 1);
-		map.put('V', 5);
-		map.put('X', 10);
-		map.put('L', 50);
-		map.put('C', 100);
-		map.put('D', 500);
-		map.put('M', 1000);
-		int len=str.length();
-		for(int i=0;i<len;i++) {
-			int currentValue=map.get(str.charAt(i));
-			int endIndex=len-1;
-			if(i<endIndex&&currentValue<map.get(str.charAt(i+1))) {
-				num=num-currentValue;
+	public static int buySellStocks(int prices[]) {
+		int minPrice=prices[0];
+		int max=0;
+		for(int i=0;i<prices.length;i++) {
+			if(minPrice>prices[i]) {
+				minPrice=prices[i];
 			}else {
-				num=num+currentValue;
+				max=Math.max(max, prices[i]-minPrice);
 			}
 		}
-		return num;
+		
+		return max;
+	}
+	public static int buySellStocks2(int prices[]) {
+		int max=0;
+		for(int i=0;i<prices.length-1;i++) {
+			if(prices[i+1]>prices[i]) {
+				max+=prices[i+1]-prices[i];
+			}
+		}
+		
+		return max;
 	}
 }
