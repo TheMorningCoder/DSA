@@ -4,57 +4,60 @@ public class SetMatrixZero2 {
 	static int[][] matrix = {
             {0, 1, 2, 0},
             {3, 4, 5, 2},
-            {1, 0, 1, 5}
+            {1, 7, 1, 5}
         };
 	static int numberOfRows=matrix.length;
 	static int numberOfCols=matrix[0].length;
+	
 	public static void main(String[]args) {
 		printMatrix(matrix);
-		setMatrix(matrix);
+		System.out.println();
+		setMatrixZero();
 		System.out.println("After changing matrix:");
 		printMatrix(matrix);
 		
 	}
-	public static void setMatrix(int [][]matrix) {
-		setMatrixMinusOne(matrix);
-		convertMinusOneToZero(matrix);
-	}
-	public static void setMatrixMinusOne(int [][] matrix) {
-			
+	
+	public static void setMatrixZero() {
+		int[] rowRecord=new int[numberOfRows];
+		int[] colRecord =new int[numberOfCols];
+		
 		for(int i=0;i<numberOfRows;i++) {
 			for(int j=0;j<numberOfCols;j++) {
 				if(matrix[i][j]==0) {
-					setRow(i,-1);
-					setCol(j,-1);
+					rowRecord[i]=-1;
+					colRecord[j]=-1;
 				}
-				
 			}
-		}
-	}
-	public static void convertMinusOneToZero(int [][] matrix) {
-		for(int i=0;i<numberOfRows;i++) {
-			for(int j=0;j<numberOfCols;j++) {
-				if(matrix[i][j]==-1) {
-					matrix[i][j]=0;
-				}
-				
-			}
-		}
-	}
-	
-	public static void setRow(int row,int number) {
-		for(int j=0;j<numberOfCols;j++) {
-			if(matrix[row][j]!=0)
-				matrix[row][j]=number;
-		}
-	}
-	public static void setCol(int col,int number) {
-		for(int i=0;i<numberOfRows;i++) {
-			if(matrix[i][col]!=0)
-				matrix[i][col]=number;
 		}
 		
+		for(int i=0;i<numberOfRows;i++) {
+			if(rowRecord[i]==-1) {
+				for(int j=0;j<numberOfCols;j++) {
+					matrix[i][j]=0;
+				}
+			}
+		}
+		for(int i=0;i<numberOfCols;i++) {
+			if(colRecord[i]==-1) {
+				for(int j=0;j<numberOfRows;j++) {
+					matrix[j][i]=0;
+				}
+			}
+		}
+//		for(int i=0;i<numberOfRows;i++) {
+//			System.out.print(rowRecord[i]+" ");
+//			
+//		}
+//		System.out.println();
+//		for(int i=0;i<numberOfCols;i++) {
+//			System.out.print(colRecord[i]+" ");
+//		}
 	}
+	
+	
+	
+	
 	public static void printMatrix(int[][] matrix) {
         for(int i = 0; i < matrix.length; i++) {
             for(int j = 0; j < matrix[i].length; j++) {
