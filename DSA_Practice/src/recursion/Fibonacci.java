@@ -9,8 +9,9 @@ public class Fibonacci {
 		System.out.println("Enter how many numbers do you want to print in Fibonacci series:");
 		int limit = sc.nextInt();
 		// Print the first N numbers
+		
 		for (int i = 0; i < limit; i++) {
-
+			//System.out.print(i);
 			System.out.print(fib(i) + " ");
 		}
 	}
